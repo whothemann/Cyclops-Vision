@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Cyclops Vision - Split Deck</title>
+<link rel="stylesheet" href="css/style.css" />
+<script src="deck-stage.js"></script>
+</head>
+<body>
+<deck-stage width="1920" height="1080" id="main-deck"></deck-stage>
+<script>
+  const slides = [
+    'slides/01_01_depth.html',
+    'slides/03_03_the_problem.html',
+    'slides/04_s1.html',
+    'slides/02_02_mono_is_enough.html',
+    'slides/02_cover_c.html',
+    'slides/06_a1.html',
+    'slides/06_a2.html',
+    'slides/07_06_depth_output.html',
+    'slides/08_07_5_mbyte.html',
+    'slides/09_08_why_now.html',
+    'slides/10_09_cost_and_form.html',
+    'slides/11_10_team.html',
+    'slides/12_11_closing.html'
+  ];
+
+  Promise.all(slides.map(url => fetch(url).then(r => r.text())))
+    .then(htmls => {
+      document.getElementById('main-deck').innerHTML = htmls.join('\n');
+    })
+    .catch(err => console.error('Error loading slides:', err));
+</script>
+</body>
+</html>

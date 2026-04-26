@@ -1,0 +1,112 @@
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap" rel="stylesheet">
+
+  <section class="slide" data-label="11 Closing">
+    <div class="frame">
+      <div class="cv-logo-wrap">
+
+        <!-- Eye icon (V6 rounded rhombus) -->
+        <div class="cv-eye-wrapper">
+          <div class="cv-eye-outer"></div>
+          <div class="cv-eye-inner"></div>
+          <div class="cv-pupil"></div>
+        </div>
+
+        <!-- CYCLOPS VISION text -->
+        <div class="cv-text">
+          <div class="cv-word">
+            <span>C</span><span>Y</span><span>C</span><span>L</span><span>O</span><span>P</span><span>S</span>
+          </div>
+          <div class="cv-word">
+            <span>V</span><span>I</span><span>S</span><span>I</span><span>O</span><span>N</span>
+          </div>
+        </div>
+
+        <div class="cv-tagline">One eye. All the depth you need.</div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .cv-logo-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      gap: 0;
+    }
+
+    /* ── Eye ── */
+    .cv-eye-wrapper {
+      position: relative;
+      width: 640px;
+      height: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+      margin-bottom: 32px;
+    }
+
+    .cv-eye-outer {
+      position: absolute;
+      width: 255px;
+      height: 255px;
+      background: #fff;
+      transform: scaleX(1.666) rotate(45deg);
+      border-radius: 40px;
+    }
+
+    .cv-eye-inner {
+      position: absolute;
+      width: 215px;
+      height: 215px;
+      background: #000;
+      transform: scaleX(1.688) rotate(45deg);
+      border-radius: 34px;
+    }
+
+    .cv-pupil {
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 50% 48%,
+        oklch(0.84 0.20 70),
+        oklch(0.47 0.26 314) 62%,
+        oklch(0.19 0.14 286));
+      box-shadow: 0 0 60px oklch(0.56 0.24 312 / 0.55);
+    }
+
+    /* ── Text ── */
+    .cv-text {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      width: 640px;
+      gap: 8px;
+    }
+
+    .cv-word {
+      display: flex;
+      justify-content: space-between;
+      font-family: "Orbitron", sans-serif;
+      font-weight: 900;
+      font-size: 96px;
+      color: #fff;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .cv-tagline {
+      margin-top: 48px;
+      font-family: "JetBrains Mono", ui-monospace, monospace;
+      font-size: 24px;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+  </style>

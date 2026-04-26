@@ -1,0 +1,702 @@
+  :root {
+    --bg: #000;
+    --fg: #fff;
+    --dim: rgba(255,255,255,0.55);
+    --dim2: rgba(255,255,255,0.35);
+    --line: rgba(255,255,255,0.18);
+    --accent: oklch(0.78 0.18 60);     /* warm orange (logo glow) */
+    --accent-2: oklch(0.55 0.22 310);  /* purple */
+  }
+
+  html, body { height: 100%; background: var(--bg); margin: 0; padding: 0; color: var(--fg); }
+  body { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+
+  deck-stage {
+    display: block;
+    height: 100vh;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    background: #000;
+  }
+
+  section.slide {
+    position: relative;
+    min-height: 100vh;
+    scroll-snap-align: start;
+    background: #000;
+    color: #fff;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    overflow: hidden;
+  }
+
+  section.slide::after {
+    content: "";
+    position: absolute;
+    top: 290px;
+    bottom: 140px;
+    left: 100px;
+    right: 100px;
+    border: 2px dashed rgba(255, 80, 80, 0.45);
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  .frame {
+    position: absolute;
+    inset: 0;
+    padding: 96px 100px 96px 100px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logo-corner {
+    position: absolute;
+    right: 64px;
+    bottom: 56px;
+    width: 110px;
+    height: auto;
+    opacity: 0.85;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* V6 eye — corner logo */
+  .logo-corner-eye {
+    position: absolute;
+    right: 64px;
+    bottom: 48px;
+    width: 90px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    user-select: none;
+  }
+  .logo-corner-eye .ce-outer {
+    position: absolute;
+    width: 42px; height: 42px;
+    background: #fff;
+    transform: scaleX(1.666) rotate(45deg);
+    border-radius: 6px;
+  }
+  .logo-corner-eye .ce-inner {
+    position: absolute;
+    width: 35px; height: 35px;
+    background: #000;
+    transform: scaleX(1.688) rotate(45deg);
+    border-radius: 5px;
+  }
+  .logo-corner-eye .ce-pupil {
+    position: absolute;
+    width: 29px; height: 29px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 48%,
+      oklch(0.84 0.20 70),
+      oklch(0.47 0.26 314) 62%,
+      oklch(0.19 0.14 286));
+    box-shadow: 0 0 12px oklch(0.56 0.24 312 / 0.55);
+  }
+
+  .slide-num {
+    position: absolute;
+    left: 80px;
+    bottom: 60px;
+    font-family: "JetBrains Mono", "SFMono-Regular", ui-monospace, Menlo, monospace;
+    font-size: 24px;
+    color: var(--dim);
+    letter-spacing: 0.12em;
+    font-weight: 400;
+  }
+  .variant-tag {
+    position: absolute;
+    left: 80px;
+    top: 60px;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 24px;
+    color: var(--accent);
+    letter-spacing: 0.32em;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  .eyebrow {
+    font-family: "JetBrains Mono", "SFMono-Regular", ui-monospace, Menlo, monospace;
+    font-size: 24px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin: 0 0 36px 0;
+    font-weight: 400;
+  }
+
+  h1.title {
+    font-size: 80px;
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+    margin: 0 0 32px 0;
+    max-width: 1500px;
+    text-wrap: balance;
+  }
+  h1.title.lg { font-size: 92px; }
+
+  p.lead {
+    font-size: 36px;
+    line-height: 1.35;
+    color: rgba(255,255,255,0.88);
+    margin: 0;
+    max-width: 1300px;
+    font-weight: 300;
+    text-wrap: pretty;
+  }
+
+  .small {
+    font-size: 28px;
+    color: var(--dim);
+    line-height: 1.4;
+    font-weight: 300;
+  }
+
+  .mono {
+    font-family: "JetBrains Mono", "SFMono-Regular", ui-monospace, Menlo, monospace;
+    letter-spacing: 0.04em;
+  }
+
+  /* ==== Slide 1: DEPTH hook ==== */
+  .hook {
+    display: flex; align-items: center; justify-content: center;
+    height: 100%;
+  }
+  .hook .word {
+    font-size: 380px;
+    letter-spacing: -0.04em;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  /* ==== Slide 2: Mono is enough ==== */
+  .title-slide {
+    display: flex; flex-direction: column; justify-content: center; height: 100%;
+  }
+  .mono-visual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-top: 60px;
+    align-items: center;
+  }
+  .eye-row {
+    display: flex; align-items: center; gap: 48px; justify-content: flex-start;
+  }
+  .eye {
+    width: 140px; height: 140px; border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%, oklch(0.78 0.18 60), oklch(0.45 0.24 310) 70%, oklch(0.25 0.18 300));
+    box-shadow: 0 0 80px oklch(0.55 0.22 310 / 0.35);
+  }
+  .eye.closed {
+    background: #0a0a0a;
+    border: 2px solid rgba(255,255,255,0.25);
+    box-shadow: none;
+    position: relative;
+  }
+  .eye.closed::after {
+    content: "";
+    position: absolute;
+    left: 22%; right: 22%; top: 50%; height: 2px;
+    background: rgba(255,255,255,0.5);
+  }
+  .eye-cap {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 26px; color: var(--dim);
+    letter-spacing: 0.2em; text-transform: uppercase;
+  }
+
+  /* ==== Slide 3: distance-measurement graphic ==== */
+  .distance-stage {
+    margin-top: 60px;
+    flex: 1;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .distance-stage svg { width: 100%; height: 100%; max-width: 1700px; max-height: 640px; }
+
+  .scene-cap {
+    margin-top: 28px;
+    text-align: center;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 26px;
+    color: var(--dim);
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+  }
+
+  /* ==== Slide 4a: elegant graphic comparison ==== */
+  .triangle-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    margin-top: 80px;
+    flex: 1;
+    align-items: stretch;
+  }
+  .opt {
+    display: flex; flex-direction: column;
+    border-top: 1px solid var(--line);
+    padding-top: 28px;
+  }
+  .opt .opt-name {
+    font-size: 38px; font-weight: 500; letter-spacing: -0.01em;
+    margin-bottom: 28px;
+  }
+  .opt .opt-vis {
+    flex: 1;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 28px;
+    min-height: 320px;
+  }
+  .opt .opt-vis svg { width: 100%; height: 100%; max-height: 320px; }
+  .opt .opt-tax {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 24px; color: var(--accent);
+    letter-spacing: 0.18em; text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .opt .opt-tax-text {
+    font-size: 28px; color: rgba(255,255,255,0.78);
+    line-height: 1.35; font-weight: 300;
+  }
+
+  /* ==== Slide 4b: matrix table ==== */
+  .matrix {
+    margin-top: 60px;
+    border-top: 1px solid var(--line);
+  }
+  .matrix .mr {
+    display: grid;
+    grid-template-columns: 360px repeat(4, 1fr);
+    border-bottom: 1px solid var(--line);
+    align-items: center;
+  }
+  .matrix .mr.head { color: var(--dim); }
+  .matrix .mc {
+    padding: 28px 24px;
+    font-size: 30px;
+    line-height: 1.2;
+    font-weight: 300;
+  }
+  .matrix .mc.k {
+    font-weight: 500;
+    font-size: 36px;
+    letter-spacing: -0.01em;
+  }
+  .matrix .mr.head .mc {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 24px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--dim);
+    padding: 22px 24px;
+  }
+  .matrix .mr.us {
+    background: rgba(255,255,255,0.04);
+    border-bottom: 1px solid rgba(255,255,255,0.85);
+    border-top: 1px solid rgba(255,255,255,0.85);
+  }
+  .matrix .mr.us .mc.k { color: var(--accent); }
+  .matrix .pip {
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .matrix .pip .dot {
+    width: 12px; height: 12px; border-radius: 50%;
+    background: rgba(255,255,255,0.25);
+  }
+  .matrix .pip.good .dot { background: var(--accent); }
+  .matrix .pip.bad .dot { background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.3); }
+
+  /* ==== Slide 5: software-defined sensor + hardware ==== */
+  .sds-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    margin-top: 40px;
+    flex: 1;
+    align-items: stretch;
+    min-height: 0;
+  }
+  .sds-left { display: flex; flex-direction: column; padding-bottom: 28px; }
+  .sds-tag {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 26px;
+    color: var(--accent);
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    margin: 0 0 24px 0;
+  }
+  .sds-claim {
+    font-size: 46px;
+    line-height: 1.1;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin: 0 0 32px 0;
+    text-wrap: balance;
+  }
+  .sds-pills {
+    display: flex; flex-wrap: wrap; gap: 14px;
+    margin-top: auto;
+  }
+  .pill {
+    border: 1px solid var(--line);
+    padding: 14px 22px;
+    border-radius: 999px;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 24px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+  }
+  .pill.hot { border-color: var(--accent); color: var(--accent); }
+
+  .hw-card {
+    border: 1px solid var(--line);
+    background: rgba(255,255,255,0.02);
+    border-radius: 6px;
+    padding: 28px 32px 28px 32px;
+    display: flex; flex-direction: column;
+    position: relative;
+    min-height: 0;
+  }
+  .hw-status {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 24px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 18px;
+  }
+  .live-dot {
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 0 var(--accent);
+    animation: pulse 1.6s infinite;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 oklch(0.78 0.18 60 / 0.6); }
+    70% { box-shadow: 0 0 0 14px oklch(0.78 0.18 60 / 0); }
+    100% { box-shadow: 0 0 0 0 oklch(0.78 0.18 60 / 0); }
+  }
+  .hw-name {
+    font-size: 38px; font-weight: 500;
+    letter-spacing: -0.01em; margin: 0 0 8px 0;
+  }
+  .hw-sub {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 24px;
+    color: var(--dim);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .hw-vis {
+    flex: 1;
+    display: flex; align-items: center; justify-content: center;
+    min-height: 200px;
+  }
+  .hw-vis svg { width: 100%; height: 100%; max-height: 240px; }
+  .hw-spec {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 32px;
+    margin-top: 22px;
+    border-top: 1px solid var(--line);
+    padding-top: 22px;
+  }
+  .hw-spec .sk {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 24px;
+    color: var(--dim);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .hw-spec .sv {
+    font-size: 26px;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+  }
+
+  /* ==== Slide 6: depth-mode visualization ==== */
+  .depth-stage {
+    margin-top: 50px;
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: stretch;
+  }
+  .depth-pane {
+    display: flex; flex-direction: column;
+  }
+  .depth-pane .ph {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 24px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin-bottom: 20px;
+  }
+  .depth-canvas {
+    flex: 1;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 16/10;
+    background: #050505;
+  }
+  .depth-canvas svg { width: 100%; height: 100%; display: block; }
+  .depth-scale {
+    margin-top: 24px;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .depth-scale .bar {
+    height: 22px;
+    background: linear-gradient(90deg,
+      oklch(0.92 0.18 80) 0%,
+      oklch(0.78 0.20 50) 18%,
+      oklch(0.62 0.22 25) 36%,
+      oklch(0.50 0.22 350) 56%,
+      oklch(0.42 0.22 290) 76%,
+      oklch(0.30 0.16 270) 100%);
+    border-radius: 2px;
+  }
+  .depth-scale .ticks {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 24px;
+    color: var(--dim);
+    letter-spacing: 0.1em;
+  }
+  .depth-scale .ticks span:last-child { text-align: right; }
+  .depth-scale .ticks span:nth-child(2),
+  .depth-scale .ticks span:nth-child(3),
+  .depth-scale .ticks span:nth-child(4),
+  .depth-scale .ticks span:nth-child(5) { text-align: center; }
+
+  /* ==== Slide 6 alt: embedded optimization demo ==== */
+  .depth-embed-frame {
+    display: flex;
+    flex-direction: column;
+  }
+  .depth-embed-wrap {
+    margin-top: 30px;
+    flex: 1;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+    min-height: 680px;
+    background: #000;
+  }
+  .depth-embed {
+    width: 100%;
+    height: 100%;
+    min-height: 680px;
+    border: 0;
+    display: block;
+    background: #000;
+  }
+
+  /* ==== Slide 6.1: 5 MByte is all you need ==== */
+  .size-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-top: 40px;
+    flex: 1;
+  }
+  .size-claim {
+    font-size: 168px;
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+    margin: 0 0 24px 0;
+  }
+  .size-claim .u {
+    font-size: 72px;
+    color: var(--dim);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+  .size-sub {
+    font-size: 38px;
+    line-height: 1.2;
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    margin: 0;
+  }
+  .size-sub em {
+    font-style: normal;
+    color: var(--accent);
+  }
+  .size-bars {
+    display: flex; flex-direction: column;
+    gap: 28px;
+    align-self: end;
+    width: 100%;
+  }
+  .size-bar {
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .size-bar .lbl {
+    display: flex; justify-content: space-between;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 24px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .size-bar .lbl .who { color: rgba(255,255,255,0.85); }
+  .size-bar .lbl .sz { color: var(--dim); }
+  .size-bar .track {
+    height: 26px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+  }
+  .size-bar .fill {
+    height: 100%;
+    background: rgba(255,255,255,0.45);
+    border-radius: 2px;
+  }
+  .size-bar.us .fill {
+    background: linear-gradient(90deg, oklch(0.78 0.18 60), oklch(0.55 0.22 310));
+  }
+  .size-bar.us .lbl .who { color: var(--accent); font-weight: 500; }
+
+  .size-foot {
+    margin-top: 50px;
+    font-size: 28px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.4;
+    font-weight: 300;
+    text-wrap: pretty;
+  }
+
+  /* ==== Slide 7: Why now (tightened) ==== */
+  .why {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 60px;
+    margin-top: 70px;
+  }
+  .why .card {
+    border-top: 2px solid var(--accent);
+    padding-top: 28px;
+  }
+  .why .k {
+    font-size: 38px;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    margin: 0 0 14px 0;
+    line-height: 1.1;
+  }
+  .why .v {
+    font-size: 26px;
+    color: var(--dim);
+    line-height: 1.4;
+    font-weight: 300;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    letter-spacing: 0.06em;
+  }
+
+  /* ==== Slide 8: Cost ==== */
+  .cost-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+    margin-top: 50px;
+  }
+  .cost {
+    border: 1px solid var(--line);
+    padding: 40px 36px 36px 36px;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.02);
+    display: flex; flex-direction: column;
+    min-height: 480px;
+  }
+  .cost.us {
+    border-color: rgba(255,255,255,0.85);
+    background: rgba(255,255,255,0.04);
+  }
+  .cost .name {
+    font-size: 24px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--dim);
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    margin-bottom: 24px;
+  }
+  .cost.us .name { color: var(--accent); }
+  .cost .price {
+    font-size: 78px; font-weight: 600;
+    letter-spacing: -0.02em; line-height: 1;
+    margin-bottom: 28px;
+  }
+  .cost .price .u {
+    font-size: 30px; color: var(--dim); font-weight: 400; margin-left: 6px;
+  }
+  .cost ul {
+    list-style: none; padding: 0; margin: 0;
+    border-top: 1px solid var(--line);
+    padding-top: 20px;
+  }
+  .cost li {
+    font-size: 24px;
+    color: rgba(255,255,255,0.78);
+    padding: 8px 0; line-height: 1.4; font-weight: 300;
+  }
+  .cost.us li { color: rgba(255,255,255,0.92); }
+
+  /* ==== Slide 9: Team ==== */
+  .team {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 80px;
+    margin-top: 80px;
+    align-items: end;
+  }
+  .member {
+    border-top: 1px solid var(--line);
+    padding-top: 28px;
+  }
+  .member .name {
+    font-size: 72px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .member .role {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 24px;
+    color: var(--dim);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-top: 24px;
+  }
+
+  /* ==== Slide 10: Closing ==== */
+  .closing {
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    height: 100%;
+    text-align: center;
+  }
+  .closing img { width: 360px; height: auto; margin-bottom: 56px; }
+  .closing .name {
+    font-size: 80px; font-weight: 600; letter-spacing: 0.04em;
+  }
+  .closing .tag {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 26px; color: var(--dim);
+    letter-spacing: 0.32em; text-transform: uppercase;
+    margin-top: 28px;
+  }

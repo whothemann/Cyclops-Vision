@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ein-Punkt-Laser vs. Dynamische Drohne</title>
+<style>
+  body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #0d1117;
+    color: #c9d1d9;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    perspective: 800px;
+  }
+
+  .scene {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    /* Kamera leicht anheben und drehen für besseren 3D-Blick */
+    transform: rotateX(-15deg) rotateY(-25deg);
+  }
+
+  .floor {
+    position: absolute;
+    width: 3000px;
+    height: 3000px;
+    left: 50%;
+    top: 50%;
+    background-image: 
+      linear-gradient(rgba(255,255,255,0.05) 2px, transparent 2px),
+      linear-gradient(90deg, rgba(255,255,255,0.05) 2px, transparent 2px);
+    background-size: 100px 100px;
+    transform: translate(-50%, -50%) rotateX(90deg) translateZ(-150px);
+  }
+
+  .wall {
+    position: absolute;
+    width: 600px;
+    height: 400px;
+    left: 50%;
+    top: 50%;
+    background: rgba(35, 134, 54, 0.1);
+    border: 2px solid #2ea043;
+    box-shadow: 0 0 20px rgba(46, 160, 67, 0.4);
+    transform: translate(-50%, -50%) translateZ(-800px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #2ea043;
+  }
+
+  .drone-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform-style: preserve-3d;
+    /* Animation: Pitch und Yaw iterieren */
+    animation: flightManeuvers 12s infinite ease-in-out;
+  }
+
+  .drone {
+    position: absolute;
+    transform-style: preserve-3d;
+  }
+
+  /* Drohnenkörper (Einfacher Block) */
+  .drone-body {
+    position: absolute;
+    width: 80px;
+    height: 20px;
+    background: #58a6ff;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 15px rgba(88, 166, 255, 0.5);
+    border-radius: 4px;
+  }
+
+  /* Laserstrahl */
+  .laser {
+    position: absolute;
+    width: 4px;
+    height: 1200px;
+    background: #ff7b72;
+    box-shadow: 0 0 15px #ff7b72, 0 0 30px #ff7b72;
+    transform-origin: top center;
+    /* Der Laser zeigt vom Zentrum nach hinten in den Raum (-Z Richtung) */
+    transform: translate(-50%, 0) rotateX(-90deg);
+  }
+
+  /* Der Punkt, an dem der Laser auf die Wand (ungefähr) trifft */
+  .laser-dot {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 20px 10px #ff7b72;
+    bottom: 0;
+    left: -8px;
+    transform: rotateX(90deg);
+  }
+
+  /* Status-UI */
+  .ui-panel {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    background: rgba(13, 17, 23, 0.8);
+    border: 1px solid #30363d;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 10;
+    backdrop-filter: blur(5px);
+    max-width: 400px;
+  }
+
+  .ui-panel h2 {
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+    color: #58a6ff;
+  }
+
+  .ui-panel p {
+    margin: 0;
+    line-height: 1.5;
+    font-size: 0.9rem;
+  }
+
+  .status {
+    margin-top: 15px;
+    font-family: monospace;
+    font-size: 1.1rem;
+    color: #ff7b72;
+  }
+
+  @keyframes flightManeuvers {
+    0%, 100% {
+      transform: rotateX(0deg) rotateY(0deg);
+    }
+    10% {
+      transform: rotateX(0deg) rotateY(0deg);
+    }
+    /* Pitch Down (Drohne neigt sich nach vorne, Laser geht nach oben) */
+    25% {
+      transform: rotateX(20deg) rotateY(0deg);
+    }
+    40% {
+      transform: rotateX(0deg) rotateY(0deg);
+    }
+    /* Pitch Up */
+    55% {
+      transform: rotateX(-20deg) rotateY(0deg);
+    }
+    70% {
+      transform: rotateX(0deg) rotateY(0deg);
+    }
+    /* Yaw (Drohne dreht sich seitlich) */
+    85% {
+      transform: rotateX(0deg) rotateY(30deg);
+    }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="scene">
+  <div class="floor"></div>
+  
+  <div class="wall">
+    Ziel / Hindernis
+  </div>
+  
+  <div class="drone-container">
+    <div class="drone">
+      <div class="drone-body"></div>
+      <div class="laser">
+        <div class="laser-dot"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ui-panel">
+  <h2>Das 1-Punkt-Laser Problem</h2>
+  <p>
+    Ein LiDAR/Laser, der nur einen Punkt misst, erfordert eine absolut stabile Ausrichtung.
+    Sobald die Drohne nickt (Pitch) oder giert (Yaw), wandert der Messpunkt vom Hindernis weg. 
+    Die Drohne wird dann "blind" für das Hindernis direkt vor ihr.
+  </p>
+  <div class="status" id="status-text">Status: Schwebeflug (Stabil)</div>
+</div>
+
+<script>
+  // Kurzes Script um den Text passend zur Animation zu ändern
+  const statusText = document.getElementById('status-text');
+  
+  setInterval(() => {
+    // 12s Animation = 12000ms
+    const time = (Date.now() % 12000) / 12000;
+    
+    if (time > 0.1 && time < 0.4) {
+      statusText.innerHTML = "Status: Pitch (Nicken) nach vorne<br>⚠️ Laser verfehlt das Hindernis nach oben!";
+      statusText.style.color = "#ff7b72";
+    } else if (time > 0.4 && time < 0.7) {
+      statusText.innerHTML = "Status: Pitch (Nicken) nach hinten<br>⚠️ Laser zielt auf den Boden!";
+      statusText.style.color = "#ff7b72";
+    } else if (time > 0.7 && time < 0.95) {
+      statusText.innerHTML = "Status: Yaw (Gieren)<br>⚠️ Laser verfehlt das Hindernis seitlich!";
+      statusText.style.color = "#ff7b72";
+    } else {
+      statusText.innerHTML = "Status: Schwebeflug (Stabil)<br>✅ Hindernis im Fokus";
+      statusText.style.color = "#3fb950";
+    }
+  }, 100);
+</script>
+
+</body>
+</html>

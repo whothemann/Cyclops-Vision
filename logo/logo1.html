@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Cyclops Vision Logo Variationen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Montserrat:wght@900&family=Oswald:wght@700&family=Playfair+Display:wght@900&family=Space+Mono:wght@700&family=Roboto:wght@900&family=Lato:wght@900&family=Poppins:wght@900&family=Raleway:wght@900&family=Bebas+Neue&family=Anton&family=Josefin+Sans:wght@700&family=Teko:wght@700&family=Orbitron:wght@900&family=Righteous&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0d1117; /* Dunkler Hintergrund */
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 40px 20px;
+    color: #fff;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 13px;
+    letter-spacing: 6px;
+    color: #888;
+    margin-bottom: 40px;
+    font-weight: 400;
+  }
+
+  .section-title {
+    text-align: center; 
+    margin: 60px 0 28px; 
+    font-size: 11px; 
+    letter-spacing: 5px; 
+    color: #999; 
+    border-top: 1px solid #333; 
+    padding-top: 40px;
+  }
+
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  .card {
+    background: #161b22; /* Dunkle Karten, damit Weiß gut wirkt */
+    border-radius: 6px;
+    padding: 50px 40px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    position: relative;
+    min-width: 300px;
+  }
+
+  .tag {
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: #888;
+    position: absolute;
+    top: 12px;
+    left: 16px;
+    text-transform: uppercase;
+  }
+
+  /* ── Eye Logo (Skalierte V4) ── */
+  .logo-icon-wrapper {
+    position: relative;
+    width: 128px; height: 80px;
+    display: flex; justify-content: center; align-items: center;
+    flex-shrink: 0;
+  }
+  .logo-icon-outer {
+    position: absolute;
+    width: 120px; height: 72px;
+    background: #fff; /* Rahmenfarbe */
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  }
+  .logo-icon-inner {
+    position: absolute;
+    width: 103px; height: 61px;
+    background: #161b22; /* Entspricht Karten-Hintergrund */
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  }
+  .logo-eye {
+    position: absolute;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle at 50% 50%,
+      #ffaa00 0%,
+      #ff4400 12%,
+      #c8005a 28%,
+      #6a1b9a 55%,
+      #3a0a6b 85%,
+      #2a0850 100%
+    );
+    box-shadow: 0 0 12px rgba(138, 43, 226, 0.6),
+                inset 0 0 8px rgba(0,0,0,0.4);
+  }
+
+  /* ── Texte ── */
+  .logo-text-stacked {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Ursprüngliches Styling (Runde 1) */
+  .text-cyclops-orig {
+    font-size: 42px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    line-height: 0.9;
+    text-transform: uppercase;
+    color: #fff;
+    font-family: "Inter", sans-serif;
+  }
+  .text-vision-orig {
+    font-size: 42px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    line-height: 0.9;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #ffaa00, #ff4400, #c8005a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 4px;
+    font-family: "Inter", sans-serif;
+  }
+
+  /* Inline Layout */
+  .logo-inline-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .logo-text-inline {
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: flex;
+    gap: 12px;
+  }
+
+  /* ── NEUE LAYOUTS (Auge neben Text) ── */
+  .layout-side-stacked {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 10px;
+  }
+  .layout-side-stacked .logo-text-stacked {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .layout-side-inline {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-top: 10px;
+  }
+  .text-inline-wrap {
+    display: flex;
+    gap: 12px;
+  }
+
+  /* Runde 2: Weißer Text, verschiedene Fonts */
+  .text-white {
+    color: #fff;
+    line-height: 1.1;
+    text-transform: uppercase;
+  }
+
+  /* Font 1-5 */
+  .font-1 { font-family: "Inter", sans-serif; font-weight: 900; font-size: 42px; letter-spacing: 4px; }
+  .font-2 { font-family: "Montserrat", sans-serif; font-weight: 900; font-size: 38px; letter-spacing: 5px; }
+  .font-3 { font-family: "Oswald", sans-serif; font-weight: 700; font-size: 46px; letter-spacing: 6px; }
+  .font-4 { font-family: "Playfair Display", serif; font-weight: 900; font-size: 38px; letter-spacing: 2px; }
+  .font-5 { font-family: "Space Mono", monospace; font-weight: 700; font-size: 30px; letter-spacing: -1px; }
+
+  /* Runde 3: 5 Neue Fonts (Side Stacked) */
+  .font-6 { font-family: "Roboto", sans-serif; font-weight: 900; font-size: 42px; letter-spacing: 2px; }
+  .font-7 { font-family: "Lato", sans-serif; font-weight: 900; font-size: 42px; letter-spacing: 3px; }
+  .font-8 { font-family: "Poppins", sans-serif; font-weight: 900; font-size: 38px; letter-spacing: 2px; }
+  .font-9 { font-family: "Raleway", sans-serif; font-weight: 900; font-size: 38px; letter-spacing: 4px; }
+  .font-10 { font-family: "Bebas Neue", sans-serif; font-weight: 400; font-size: 52px; letter-spacing: 4px; line-height: 0.95; }
+  
+  /* Runde 4: 5 Neue Fonts (Side Inline) */
+  .font-11 { font-family: "Anton", sans-serif; font-weight: 400; font-size: 38px; letter-spacing: 2px; }
+  .font-12 { font-family: "Josefin Sans", sans-serif; font-weight: 700; font-size: 36px; letter-spacing: 3px; }
+  .font-13 { font-family: "Teko", sans-serif; font-weight: 700; font-size: 52px; letter-spacing: 2px; line-height: 0.9; margin-top: 8px;}
+  .font-14 { font-family: "Orbitron", sans-serif; font-weight: 900; font-size: 28px; letter-spacing: 2px; }
+  .font-15 { font-family: "Righteous", sans-serif; font-weight: 400; font-size: 32px; letter-spacing: 2px; }
+
+  /* ── RUNDE 5: ORBITRON (F14) EXPERIMENTE ── */
+  .font-14-large { 
+    font-family: "Orbitron", sans-serif; 
+    font-weight: 900; 
+    font-size: 32px; 
+    letter-spacing: 2px; 
+    color: #fff; 
+    line-height: 1.1; 
+  }
+  
+  /* L1: Logo Top, Text Stacked Bottom */
+  .layout-logo-top-text-bottom {
+    display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center;
+  }
+
+  /* L2: Text Stacked Left, Logo Right */
+  .layout-text-left-logo-right {
+    display: flex; align-items: center; gap: 20px;
+  }
+  .layout-text-left-logo-right .logo-text-stacked {
+    align-items: flex-end; text-align: right;
+  }
+
+  /* L3: Logo in Background, Text Stacked Overlapping */
+  .layout-overlap {
+    position: relative;
+    width: 240px; height: 140px;
+    display: flex; justify-content: center; align-items: center;
+  }
+  .layout-overlap .logo-icon-wrapper {
+    position: absolute; opacity: 0.25; /* Deutlich transparent für Lesbarkeit */
+  }
+  .layout-overlap .logo-text-stacked {
+    position: absolute; z-index: 1; text-shadow: 0 4px 12px rgba(0,0,0,0.8);
+  }
+
+  /* L4: Text Top & Bottom */
+  .layout-text-top-bottom {
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+  }
+
+  /* L5: Text Split Left & Right */
+  .layout-text-split {
+    display: flex; align-items: center; gap: 16px;
+  }
+
+  /* ── RUNDE 6 & 7: PUPIL EXPERIMENTE ── */
+  .logo-eye-p1, .logo-eye-p2, .logo-eye-p3, .logo-eye-p4, .logo-eye-p5 {
+    position: absolute;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+  }
+  .logo-eye-p1 {
+    background: radial-gradient(circle at 50% 50%, #ffaa00 0%, #ff4400 12%, #c8005a 28%, #6a1b9a 55%, #3a0a6b 85%, #2a0850 100%);
+    box-shadow: 0 0 12px rgba(138, 43, 226, 0.6), inset 0 0 8px rgba(0,0,0,0.4);
+    border: 2px solid #ffffff;
+  }
+  .logo-eye-p2 {
+    background: radial-gradient(circle at 50% 50%, #ffaa00 0%, #ff4400 12%, #c8005a 28%, #6a1b9a 55%, #3a0a6b 85%, #2a0850 100%);
+    box-shadow: 0 0 12px rgba(138, 43, 226, 0.6), inset 0 0 8px rgba(0,0,0,0.4);
+    border: 4px solid #ffffff;
+  }
+  .logo-eye-p3 {
+    background: radial-gradient(circle at 50% 50%, #ff5588 0%, #ff2266 15%, #d00070 30%, #800080 60%, #400060 85%, #200040 100%);
+    box-shadow: 0 0 12px rgba(208, 0, 112, 0.6), inset 0 0 8px rgba(0,0,0,0.4);
+    border: 2px solid #ffffff;
+  }
+  .logo-eye-p4 {
+    background: radial-gradient(circle at 50% 50%, #ffee00 0%, #ff8800 15%, #e02250 35%, #801080 65%, #400050 85%, #2a0850 100%);
+    box-shadow: 0 0 12px rgba(224, 34, 80, 0.6), inset 0 0 8px rgba(0,0,0,0.4);
+    border: 2px solid #ffffff;
+  }
+  .logo-eye-p5 {
+    background: radial-gradient(circle at 50% 50%, #ff88ff 0%, #cc44ee 15%, #8811cc 35%, #5500aa 65%, #330066 85%, #1a0033 100%);
+    box-shadow: 0 0 12px rgba(136, 17, 204, 0.6), inset 0 0 8px rgba(0,0,0,0.4);
+    border: 2px solid #ffffff;
+  }
+
+</style>
+</head>
+<body>
+
+<h1>CYCLOPS VISION · LAYOUT & TYPOGRAPHIE</h1>
+
+<div class="grid">
+
+  <!-- V1 -->
+  <div class="card">
+    <div class="tag">V1 · ZWEIZEILIG (STACKED)</div>
+    <div class="logo-icon-wrapper">
+      <div class="logo-icon-outer"></div>
+      <div class="logo-icon-inner"></div>
+      <div class="logo-eye"></div>
+    </div>
+    <div class="logo-text-stacked">
+      <div class="text-cyclops-orig">CYCLOPS</div>
+      <div class="text-vision-orig">VISION</div>
+    </div>
+  </div>
+
+  <!-- V2 -->
+  <div class="card" style="padding-bottom: 50px;">
+    <div class="tag">V2 · EINZEILIG (INLINE)</div>
+    <div class="logo-inline-container">
+      <div class="logo-icon-wrapper" style="transform: scale(0.8); margin: 0;">
+        <div class="logo-icon-outer"></div>
+        <div class="logo-icon-inner"></div>
+        <div class="logo-eye"></div>
+      </div>
+      <div class="logo-text-inline">
+        <span class="text-cyclops-orig" style="font-size:32px;">CYCLOPS</span>
+        <span class="text-vision-orig" style="font-size:32px; margin-top:0;">VISION</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="section-title">
+  RUNDE 2 · 5 UNTERSCHIEDLICHE SCHRIFTARTEN (KOMPLETT WEISS)
+</div>
+
+<div class="grid">
+
+  <!-- Font 1 -->
+  <div class="card">
+    <div class="tag">F1 · INTER (MODERN)</div>
+    <div class="logo-icon-wrapper">
+      <div class="logo-icon-outer"></div>
+      <div class="logo-icon-inner"></div>
+      <div class="logo-eye"></div>
+    </div>
+    <div class="logo-text-stacked text-white font-1">
+      <div>CYCLOPS</div>
+      <div>VISION</div>
+    </div>
+  </div>
+
+  <!-- Font 2 -->
+  <div class="card">
+    <div class="tag">F2 · MONTSERRAT (GEOMETRISCH)</div>
+    <div class="logo-icon-wrapper">
+      <div class="logo-icon-outer"></div>
+      <div class="logo-icon-inner"></div>
+      <div class="logo-eye"></div>
+    </div>
+    <div class="logo-text-stacked text-white font-2">
+      <div>CYCLOPS</div>
+      <div>VISION</div>
+    </div>
+  </div>
+
+  <!-- Font 3 -->
+  <div class="card">
+    <div class="tag">F3 · OSWALD (KOMPAKT)</div>
+    <div class="logo-icon-wrapper">
+      <div class="logo-icon-outer"></div>
+      <div class="logo-icon-inner"></div>
+      <div class="logo-eye"></div>
+    </div>
+    <div class="logo-text-stacked text-white font-3">
+      <div>CYCLOPS</div>
+      <div>VISION</div>
+    </div>
+  </div>
+
+  <!-- Font 4 -->
+  <div class="card">
+    <div class="tag">F4 · PLAYFAIR (ELEGANT)</div>
+    <div class="logo-icon-wrapper">
+      <div class="logo-icon-outer"></div>
+      <div class="logo-icon-inner"></div>
+      <div class="logo-eye"></div>
+    </div>
+    <div class="logo-text-stacked text-white font-4">
+      <div>CYCLOPS</div>
+      <div>VISION</div>
+    </div>
+  </div>
+
+  <!-- Font 5 -->
+  <div class="card">
+    <div class="tag">F5 · SPACE MONO (TECH)</div>
+    <div class="logo-icon-wrapper">
+      <div class="logo-icon-outer"></div>
+      <div class="logo-icon-inner"></div>
+      <div class="logo-eye"></div>
+    </div>
+    <div class="logo-text-stacked text-white font-5">
+      <div>CYCLOPS</div>
+      <div>VISION</div>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="section-title">
+  RUNDE 3 · AUGE NEBEN TEXT (ZWEIZEILIG / STACKED)
+</div>
+
+<div class="grid">
+
+  <!-- Font 6 -->
+  <div class="card">
+    <div class="tag">F6 · ROBOTO</div>
+    <div class="layout-side-stacked">
+      <div class="logo-icon-wrapper" style="transform: scale(0.8); margin-right: -10px;">
+        <div class="logo-icon-outer"></div>
+        <div class="logo-icon-inner"></div>
+        <div class="logo-eye"></div>
+      </div>
+      <div class="logo-text-stacked text-white font-6">
+        <div>CYCLOPS</div>
+        <div>VISION</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Font 7 -->
+  <div class="card">
+    <div class="tag">F7 · LATO</div>
+    <div class="layout-side-stacked">
+      <div class="logo-icon-wrapper" style="transform: scale(0.8); margin-right: -10px;">
+        <div class="logo-icon-outer"></div>
+        <div class="logo-icon-inner"></div>
+        <div class="logo-eye"></div>
+      </div>
+      <div class="logo-text-stacked text-white font-7">
+        <div>CYCLOPS</div>
+        <div>VISION</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Font 8 -->
+  <div class="card">
+    <div class="tag">F8 · POPPINS</div>
+    <div class="layout-side-stacked">
+      <div class="logo-icon-wrapper" style="transform: scale(0.8); margin-right: -10px;">
+        <div class="logo-icon-outer"></div>
+        <div class="logo-icon-inner"></div>
+        <div class="logo-eye"></div>
+      </div>
+      <div class="logo-text-stacked text-white font-8">
+        <div>CYCLOPS</div>
+        <div>VISION</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Font 9 -->
+  <div class="card">
+    <div class="tag">F9 · RALEWAY</div>
+    <div class="layout-side-stacked">
+      <div class="logo-icon-wrapper" style="transform: scale(0.8); margin-right: -10px;">
+        <div class="logo-icon-outer"></div>
+        <div class="logo-icon-inner"></div>
+        <div class="logo-eye"></div>
+      </div>
+      <div class="logo-text-stacked text-white font-9">
+        <div>CYCLOPS</div>
+        <div>VISION</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Font 10 -->
+  <div class="card">
+    <div class="tag">F10 · BEBAS NEUE</div>
+    <div class="layout-side-stacked">
+      <div class="logo-icon-wrapper" style="transform: scale(0.8); margin-right: -10px;">
+        <div class="logo-icon-outer"></div>
+        <div class="logo-icon-inner"></div>
+        <div class="logo-eye"></div>
+      </div>
+      <div class="logo-text-stacked text-white font-10">
+        <div>CYCLOPS</div>
+        <div>VISION</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="section-title">
+  RUNDE 4 · AUGE NEBEN TEXT (EINZEILIG / INLINE)
+</div>
+
+<div class="grid">
+
+  <!-- Font 11 -->
+  <div class="card">
+    <div class="tag">F11 · ANTON</div>
+    <div class="layout-side-inline">
+      <div class="logo-icon-wrapper" style="transform: scale(0.7); margin-right: -16px;">
+        <div class="logo-icon-outer"></div>
+        <div class="logo-icon-inner"></div>
+        <div class="logo-eye"></div>
+      </div>
+      <div class="text-inline-wrap text-white font-11">
+        <span>CYCLOPS</span>
+        <span>VISION</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Font 12 -->
+  <div class="card">
+    <div class="tag">F12 · JOSEFIN SANS</div>
+    <div class="layout-side-inline">
+      <div class="logo-icon-wrapper" style="transform: scale(0.7); margin-right: -16px;">
+        <div class="logo-icon-outer"></div>
+        <div class="logo-icon-inner"></div>
+        <div class="logo-eye"></div>
+      </div>
+      <div class="text-inline-wrap text-white font-12">
+        <span>CYCLOPS</span>
+        <span>VISION</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Font 13 -->
+  <div class="card">
+    <div class="tag">F13 · TEKO</div>
+    <div class="layout-side-inline">
+      <div class="logo-icon-wrapper" style="transform: scale(0.7); margin-right: -16px;">
+        <div class="logo-icon-outer"></div>
+        <div class="logo-icon-inner"></div>
+        <div class="logo-eye"></div>
+      </div>
+      <div class="text-inline-wrap text-white font-13">
+        <span>CYCLOPS</span>
+        <span>VISION</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Font 14 -->
+  <div class="card">
+    <div class="tag">F14 · ORBITRON</div>
+    <div class="layout-side-inline">
+      <div class="logo-icon-wrapper" style="transform: scale(0.7); margin-right: -16px;">
+        <div class="logo-icon-outer"></div>
+        <div class="logo-icon-inner"></div>
+        <div class="logo-eye"></div>
+      </div>
+      <div class="text-inline-wrap text-white font-14">
+        <span>CYCLOPS</span>
+        <span>VISION</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Font 15 -->
+  <div class="card">
+    <div class="tag">F15 · RIGHTEOUS</div>
+    <div class="layout-side-inline">
+      <div class="logo-icon-wrapper" style="transform: scale(0.7); margin-right: -16px;">
+        <div class="logo-icon-outer"></div>
+        <div class="logo-icon-inner"></div>
+        <div class="logo-eye"></div>
+      </div>
+      <div class="text-inline-wrap text-white font-15">
+        <span>CYCLOPS</span>
+        <span>VISION</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="section-title">
+  RUNDE 5 · F14 (ORBITRON) · ANORDNUNGS-EXPERIMENTE
+</div>
+
+<div class="grid">
+
+  <!-- EXP 1: Logo Top, Text Stacked Bottom -->
+  <div class="card">
+    <div class="tag">EXP 1 · LOGO OBEN</div>
+    <div class="layout-logo-top-text-bottom">
+      <div class="logo-icon-wrapper" style="transform: scale(0.8);">
+        <div class="logo-icon-outer"></div>
+        <div class="logo-icon-inner"></div>
+        <div class="logo-eye"></div>
+      </div>
+      <div class="logo-text-stacked font-14-large">
+        <div>CYCLOPS</div>
+        <div>VISION</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXP 2: Text Stacked Left, Logo Right -->
+  <div class="card">
+    <div class="tag">EXP 2 · TEXT LINKS</div>
+    <div class="layout-text-left-logo-right">
+      <div class="logo-text-stacked font-14-large">
+        <div>CYCLOPS</div>
+        <div>VISION</div>
+      </div>
+      <div class="logo-icon-wrapper" style="transform: scale(0.8);">
+        <div class="logo-icon-outer"></div>
+        <div class="logo-icon-inner"></div>
+        <div class="logo-eye"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXP 3: Overlap (Logo Background) -->
+  <div class="card">
+    <div class="tag">EXP 3 · ÜBERLAGERT</div>
+    <div class="layout-overlap">
+      <div class="logo-icon-wrapper" style="transform: scale(1.1);">
+        <div class="logo-icon-outer"></div>
+        <div class="logo-icon-inner"></div>
+        <div class="logo-eye"></div>
+      </div>
+      <div class="logo-text-stacked font-14-large" style="text-align: center;">
+        <div>CYCLOPS</div>
+        <div>VISION</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXP 4: Text Top & Bottom -->
+  <div class="card">
+    <div class="tag">EXP 4 · OBEN & UNTEN</div>
+    <div class="layout-text-top-bottom">
+      <div class="font-14-large" style="margin-bottom: 4px;">CYCLOPS</div>
+      <div class="logo-icon-wrapper" style="transform: scale(0.7);">
+        <div class="logo-icon-outer"></div>
+        <div class="logo-icon-inner"></div>
+        <div class="logo-eye"></div>
+      </div>
+      <div class="font-14-large" style="margin-top: 4px;">VISION</div>
+    </div>
+  </div>
+
+  <!-- EXP 5: Split Left & Right -->
+  <div class="card">
+    <div class="tag">EXP 5 · LINKS & RECHTS</div>
+    <div class="layout-text-split">
+      <div class="font-14-large">CYCLOPS</div>
+      <div class="logo-icon-wrapper" style="transform: scale(0.6); margin: 0 -12px;">
+        <div class="logo-icon-outer"></div>
+        <div class="logo-icon-inner"></div>
+        <div class="logo-eye"></div>
+      </div>
+      <div class="font-14-large">VISION</div>
+    </div>
+  </div>
+
+  </div>
+
+
+  <div class="section-title">
+  RUNDE 6 · EXP 1 (LOGO OBEN) · PUPIL EXPERIMENTE
+  </div>
+
+  <div class="grid">
+
+  <!-- P1 -->
+  <div class="card">
+    <div class="tag">P1 · ORIG + DÜNN WEISS</div>
+    <div class="layout-logo-top-text-bottom">
+      <div class="logo-icon-wrapper" style="transform: scale(0.8);">
+        <div class="logo-icon-outer"></div>
+        <div class="logo-icon-inner"></div>
+        <div class="logo-eye-p1"></div>
+      </div>
+      <div class="logo-text-stacked font-14-large">
+        <div>CYCLOPS</div>
+        <div>VISION</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- P2 -->
+  <div class="card">
+    <div class="tag">P2 · ORIG + DICK WEISS</div>
+    <div class="layout-logo-top-text-bottom">
+      <div class="logo-icon-wrapper" style="transform: scale(0.8);">
+        <div class="logo-icon-outer"></div>
+        <div class="logo-icon-inner"></div>
+        <div class="logo-eye-p2"></div>
+      </div>
+      <div class="logo-text-stacked font-14-large">
+        <div>CYCLOPS</div>
+        <div>VISION</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- P3 -->
+  <div class="card">
+    <div class="tag">P3 · PINK + WEISS</div>
+    <div class="layout-logo-top-text-bottom">
+      <div class="logo-icon-wrapper" style="transform: scale(0.8);">
+        <div class="logo-icon-outer"></div>
+        <div class="logo-icon-inner"></div>
+        <div class="logo-eye-p3"></div>
+      </div>
+      <div class="logo-text-stacked font-14-large">
+        <div>CYCLOPS</div>
+        <div>VISION</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- P4 -->
+  <div class="card">
+    <div class="tag">P4 · ORANGE + WEISS</div>
+    <div class="layout-logo-top-text-bottom">
+      <div class="logo-icon-wrapper" style="transform: scale(0.8);">
+        <div class="logo-icon-outer"></div>
+        <div class="logo-icon-inner"></div>
+        <div class="logo-eye-p4"></div>
+      </div>
+      <div class="logo-text-stacked font-14-large">
+        <div>CYCLOPS</div>
+        <div>VISION</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- P5 -->
+  <div class="card">
+    <div class="tag">P5 · VIOLETT + WEISS</div>
+    <div class="layout-logo-top-text-bottom">
+      <div class="logo-icon-wrapper" style="transform: scale(0.8);">
+        <div class="logo-icon-outer"></div>
+        <div class="logo-icon-inner"></div>
+        <div class="logo-eye-p5"></div>
+      </div>
+      <div class="logo-text-stacked font-14-large">
+        <div>CYCLOPS</div>
+        <div>VISION</div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+
+  <div class="section-title">
+  RUNDE 7 · EXP 2 (TEXT LINKS) · PUPIL EXPERIMENTE
+  </div>
+
+  <div class="grid">
+
+  <!-- P1 -->
+  <div class="card">
+    <div class="tag">P1 · ORIG + DÜNN WEISS</div>
+    <div class="layout-text-left-logo-right">
+      <div class="logo-text-stacked font-14-large">
+        <div>CYCLOPS</div>
+        <div>VISION</div>
+      </div>
+      <div class="logo-icon-wrapper" style="transform: scale(0.8);">
+        <div class="logo-icon-outer"></div>
+        <div class="logo-icon-inner"></div>
+        <div class="logo-eye-p1"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- P2 -->
+  <div class="card">
+    <div class="tag">P2 · ORIG + DICK WEISS</div>
+    <div class="layout-text-left-logo-right">
+      <div class="logo-text-stacked font-14-large">
+        <div>CYCLOPS</div>
+        <div>VISION</div>
+      </div>
+      <div class="logo-icon-wrapper" style="transform: scale(0.8);">
+        <div class="logo-icon-outer"></div>
+        <div class="logo-icon-inner"></div>
+        <div class="logo-eye-p2"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- P3 -->
+  <div class="card">
+    <div class="tag">P3 · PINK + WEISS</div>
+    <div class="layout-text-left-logo-right">
+      <div class="logo-text-stacked font-14-large">
+        <div>CYCLOPS</div>
+        <div>VISION</div>
+      </div>
+      <div class="logo-icon-wrapper" style="transform: scale(0.8);">
+        <div class="logo-icon-outer"></div>
+        <div class="logo-icon-inner"></div>
+        <div class="logo-eye-p3"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- P4 -->
+  <div class="card">
+    <div class="tag">P4 · ORANGE + WEISS</div>
+    <div class="layout-text-left-logo-right">
+      <div class="logo-text-stacked font-14-large">
+        <div>CYCLOPS</div>
+        <div>VISION</div>
+      </div>
+      <div class="logo-icon-wrapper" style="transform: scale(0.8);">
+        <div class="logo-icon-outer"></div>
+        <div class="logo-icon-inner"></div>
+        <div class="logo-eye-p4"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- P5 -->
+  <div class="card">
+    <div class="tag">P5 · VIOLETT + WEISS</div>
+    <div class="layout-text-left-logo-right">
+      <div class="logo-text-stacked font-14-large">
+        <div>CYCLOPS</div>
+        <div>VISION</div>
+      </div>
+      <div class="logo-icon-wrapper" style="transform: scale(0.8);">
+        <div class="logo-icon-outer"></div>
+        <div class="logo-icon-inner"></div>
+        <div class="logo-eye-p5"></div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+  </body>
+  </html>

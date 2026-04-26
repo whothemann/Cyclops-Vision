@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Cyclops Vision Logo - Pupillen & Layouts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Rajdhani:wght@700&family=Montserrat:wght@800&family=Oswald:wght@700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0d1117; /* Dunkler Hintergrund */
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 80px 0;
+    gap: 120px; 
+    color: #fff;
+  }
+
+  h2 {
+    letter-spacing: 3px;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 24px;
+    margin-bottom: -40px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 10px;
+  }
+
+  /* ── Eye Logo ── */
+  .logo-icon-wrapper {
+    position: relative;
+    width: 128px; height: 80px;
+    display: flex; justify-content: center; align-items: center;
+    flex-shrink: 0;
+    transform: scale(1.2);
+  }
+  
+  .logo-icon-outer {
+    position: absolute;
+    width: 120px; height: 72px;
+    background: #fff; /* Rahmenfarbe */
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  }
+  
+  .logo-icon-inner {
+    position: absolute;
+    width: 103px; height: 61px;
+    background: #0d1117; /* Entspricht Body-Hintergrund */
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  }
+
+  /* Gemeinsame Pupillen-Eigenschaften */
+  .logo-eye {
+    position: absolute;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+  }
+
+  /* Variante A: Gleichmäßige Verteilung */
+  .pupil-a {
+    background: radial-gradient(circle at 50% 50%, #ffd089 0%, #ff944d 20%, #cc4d3d 40%, #6b2a4d 60%, #2b1a4a 80%, #0a0e2e 100%);
+    box-shadow: 0 0 12px rgba(10, 14, 46, 0.8), inset 0 0 8px rgba(0,0,0,0.5);
+  }
+
+  /* Variante B: Blau am Rand etwas dominanter */
+  .pupil-b {
+    background: radial-gradient(circle at 50% 50%, #ffd089 0%, #ff944d 15%, #cc4d3d 30%, #6b2a4d 50%, #2b1a4a 70%, #0a0e2e 85%);
+    box-shadow: 0 0 12px rgba(10, 14, 46, 0.8), inset 0 0 8px rgba(0,0,0,0.5);
+  }
+
+  /* Variante C: Helles Zentrum dominanter */
+  .pupil-c {
+    background: radial-gradient(circle at 50% 50%, #ffd089 10%, #ff944d 30%, #cc4d3d 50%, #6b2a4d 70%, #2b1a4a 85%, #0a0e2e 100%);
+    box-shadow: 0 0 12px rgba(10, 14, 46, 0.8), inset 0 0 8px rgba(0,0,0,0.5);
+  }
+
+  /* Variante D (Logos2 EXP1): Mit Rand */
+  .pupil-d {
+    background: radial-gradient(circle at 50% 50%, #ffaa00 0%, #ff4400 12%, #c8005a 28%, #6a1b9a 55%, #3a0a6b 85%, #2a0850 100%);
+    box-shadow: 0 0 12px rgba(138, 43, 226, 0.6), inset 0 0 8px rgba(0,0,0,0.4);
+  }
+
+  /* Variante D: Dünnerer Rand 1 (1.5px) */
+  .pupil-d-thin-1 {
+    background: radial-gradient(circle at 50% 50%, #ffaa00 0%, #ff4400 12%, #c8005a 28%, #6a1b9a 55%, #3a0a6b 85%, #2a0850 100%);
+    box-shadow: 0 0 12px rgba(138, 43, 226, 0.6), inset 0 0 8px rgba(0,0,0,0.4);
+    border-width: 1.5px;
+  }
+
+  /* Variante D: Dünnerer Rand 2 (1px) */
+  .pupil-d-thin-2 {
+    background: radial-gradient(circle at 50% 50%, #ffaa00 0%, #ff4400 12%, #c8005a 28%, #6a1b9a 55%, #3a0a6b 85%, #2a0850 100%);
+    box-shadow: 0 0 12px rgba(138, 43, 226, 0.6), inset 0 0 8px rgba(0,0,0,0.4);
+    border-width: 1px;
+  }
+
+  /* Variante D (Logos2 EXP1): Ohne Rand */
+  .pupil-d-no-border {
+    background: radial-gradient(circle at 50% 50%, #ffaa00 0%, #ff4400 12%, #c8005a 28%, #6a1b9a 55%, #3a0a6b 85%, #2a0850 100%);
+    box-shadow: 0 0 12px rgba(138, 43, 226, 0.6), inset 0 0 8px rgba(0,0,0,0.4);
+    border: none;
+  }
+
+  /* ── Typografie (Orbitron F14) ── */
+  .font-14-large { 
+    font-family: "Orbitron", sans-serif; 
+    font-weight: 900; 
+    font-size: 42px; 
+    letter-spacing: 3px; 
+    color: #fff; 
+    line-height: 1.1; 
+  }
+
+  /* ── Layouts ── */
+  
+  /* Layout 1: Logo Oben, Text Unten */
+  .layout-logo-top-text-bottom {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 16px; 
+    text-align: center;
+  }
+
+  /* Layout 2: Text Links, Logo Rechts */
+  .layout-text-left-logo-right {
+    display: flex; 
+    align-items: center; 
+    gap: 32px;
+  }
+  .layout-text-left-logo-right .logo-text-stacked {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; 
+    text-align: right;
+  }
+
+  /* Darstellung */
+  .section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+    width: 100%;
+    max-width: 1000px;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    width: 100%;
+    align-items: center;
+    justify-items: center;
+  }
+
+  .variant-label {
+    text-align: center;
+    font-size: 14px;
+    color: #888;
+    letter-spacing: 2px;
+    margin-bottom: 32px;
+    text-transform: uppercase;
+  }
+
+  /* ── Interactive Rounded Rhombus ── */
+  :root {
+    --eye-radius: 8px;
+  }
+
+  .logo-icon-wrapper-rounded {
+    position: relative;
+    width: 128px; height: 80px;
+    display: flex; justify-content: center; align-items: center;
+    flex-shrink: 0;
+    transform: scale(1.2);
+  }
+
+  .logo-icon-outer-rounded {
+    position: absolute;
+    width: 51px; height: 51px;
+    background: #fff;
+    transform: scaleX(1.666) rotate(45deg);
+    border-radius: var(--eye-radius);
+  }
+
+  .logo-icon-inner-rounded {
+    position: absolute;
+    width: 43px; height: 43px;
+    background: #0d1117;
+    transform: scaleX(1.688) rotate(45deg);
+    border-radius: calc(var(--eye-radius) * 0.84);
+  }
+
+</style>
+</head>
+<body>
+
+  <!-- ================= VARIANTE A ================= -->
+  <div class="section">
+    <h2>VARIANTE A (Gleichmäßig)</h2>
+    <div class="grid-container">
+      
+      <!-- Layout 1 -->
+      <div>
+        <div class="variant-label">Layout 1 (Gestackt)</div>
+        <div class="layout-logo-top-text-bottom">
+          <div class="logo-icon-wrapper" style="margin-bottom: 8px;">
+            <div class="logo-icon-outer"></div>
+            <div class="logo-icon-inner"></div>
+            <div class="logo-eye pupil-a"></div>
+          </div>
+          <div class="font-14-large">
+            <div>CYCLOPS</div>
+            <div>VISION</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Layout 2 -->
+      <div>
+        <div class="variant-label">Layout 2 (Nebeneinander)</div>
+        <div class="layout-text-left-logo-right">
+          <div class="logo-text-stacked font-14-large">
+            <div>CYCLOPS</div>
+            <div>VISION</div>
+          </div>
+          <div class="logo-icon-wrapper">
+            <div class="logo-icon-outer"></div>
+            <div class="logo-icon-inner"></div>
+            <div class="logo-eye pupil-a"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ================= VARIANTE B ================= -->
+  <div class="section">
+    <h2>VARIANTE B (Mehr Dunkelblau)</h2>
+    <div class="grid-container">
+      
+      <!-- Layout 1 -->
+      <div>
+        <div class="variant-label">Layout 1 (Gestackt)</div>
+        <div class="layout-logo-top-text-bottom">
+          <div class="logo-icon-wrapper" style="margin-bottom: 8px;">
+            <div class="logo-icon-outer"></div>
+            <div class="logo-icon-inner"></div>
+            <div class="logo-eye pupil-b"></div>
+          </div>
+          <div class="font-14-large">
+            <div>CYCLOPS</div>
+            <div>VISION</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Layout 2 -->
+      <div>
+        <div class="variant-label">Layout 2 (Nebeneinander)</div>
+        <div class="layout-text-left-logo-right">
+          <div class="logo-text-stacked font-14-large">
+            <div>CYCLOPS</div>
+            <div>VISION</div>
+          </div>
+          <div class="logo-icon-wrapper">
+            <div class="logo-icon-outer"></div>
+            <div class="logo-icon-inner"></div>
+            <div class="logo-eye pupil-b"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ================= VARIANTE C ================= -->
+  <div class="section">
+    <h2>VARIANTE C (Mehr Gelb/Orange)</h2>
+    <div class="grid-container">
+      
+      <!-- Layout 1 -->
+      <div>
+        <div class="variant-label">Layout 1 (Gestackt)</div>
+        <div class="layout-logo-top-text-bottom">
+          <div class="logo-icon-wrapper" style="margin-bottom: 8px;">
+            <div class="logo-icon-outer"></div>
+            <div class="logo-icon-inner"></div>
+            <div class="logo-eye pupil-c"></div>
+          </div>
+          <div class="font-14-large">
+            <div>CYCLOPS</div>
+            <div>VISION</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Layout 2 -->
+      <div>
+        <div class="variant-label">Layout 2 (Nebeneinander)</div>
+        <div class="layout-text-left-logo-right">
+          <div class="logo-text-stacked font-14-large">
+            <div>CYCLOPS</div>
+            <div>VISION</div>
+          </div>
+          <div class="logo-icon-wrapper">
+            <div class="logo-icon-outer"></div>
+            <div class="logo-icon-inner"></div>
+            <div class="logo-eye pupil-c"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ================= VARIANTE D (Original Logos2) ================= -->
+  <div class="section">
+    <h2>VARIANTE D (Original Logos2)</h2>
+    <div class="grid-container">
+      
+      <!-- Layout 1 (Mit Rand) -->
+      <div>
+        <div class="variant-label">Layout 1 (Mit Rand)</div>
+        <div class="layout-logo-top-text-bottom">
+          <div class="logo-icon-wrapper" style="margin-bottom: 8px;">
+            <div class="logo-icon-outer"></div>
+            <div class="logo-icon-inner"></div>
+            <div class="logo-eye pupil-d"></div>
+          </div>
+          <div class="font-14-large">
+            <div>CYCLOPS</div>
+            <div>VISION</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Layout 2 (Mit Rand) -->
+      <div>
+        <div class="variant-label">Layout 2 (Mit Rand)</div>
+        <div class="layout-text-left-logo-right">
+          <div class="logo-text-stacked font-14-large">
+            <div>CYCLOPS</div>
+            <div>VISION</div>
+          </div>
+          <div class="logo-icon-wrapper">
+            <div class="logo-icon-outer"></div>
+            <div class="logo-icon-inner"></div>
+            <div class="logo-eye pupil-d"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Layout 1 (Ohne Rand) -->
+      <div>
+        <div class="variant-label">Layout 1 (Ohne Rand)</div>
+        <div class="layout-logo-top-text-bottom">
+          <div class="logo-icon-wrapper" style="margin-bottom: 8px;">
+            <div class="logo-icon-outer"></div>
+            <div class="logo-icon-inner"></div>
+            <div class="logo-eye pupil-d-no-border"></div>
+          </div>
+          <div class="font-14-large">
+            <div>CYCLOPS</div>
+            <div>VISION</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Layout 2 (Ohne Rand) -->
+      <div>
+        <div class="variant-label">Layout 2 (Ohne Rand)</div>
+        <div class="layout-text-left-logo-right">
+          <div class="logo-text-stacked font-14-large">
+            <div>CYCLOPS</div>
+            <div>VISION</div>
+          </div>
+          <div class="logo-icon-wrapper">
+            <div class="logo-icon-outer"></div>
+            <div class="logo-icon-inner"></div>
+            <div class="logo-eye pupil-d-no-border"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Layout 1 (Dünnerer Rand - 1.5px) -->
+      <div>
+        <div class="variant-label">Layout 1 (Dünner Rand: 1.5px)</div>
+        <div class="layout-logo-top-text-bottom">
+          <div class="logo-icon-wrapper" style="margin-bottom: 8px;">
+            <div class="logo-icon-outer"></div>
+            <div class="logo-icon-inner"></div>
+            <div class="logo-eye pupil-d-thin-1"></div>
+          </div>
+          <div class="font-14-large">
+            <div>CYCLOPS</div>
+            <div>VISION</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Layout 1 (Noch Dünnerer Rand - 1px) -->
+      <div>
+        <div class="variant-label">Layout 1 (Dünner Rand: 1px)</div>
+        <div class="layout-logo-top-text-bottom">
+          <div class="logo-icon-wrapper" style="margin-bottom: 8px;">
+            <div class="logo-icon-outer"></div>
+            <div class="logo-icon-inner"></div>
+            <div class="logo-eye pupil-d-thin-2"></div>
+          </div>
+          <div class="font-14-large">
+            <div>CYCLOPS</div>
+            <div>VISION</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= ITERATION: ABRUNDUNG & STRECKUNG ================= -->
+  <div class="section" style="margin-top: 40px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1);">
+    <h2>ITERATION: Abrundung & Vision-Streckung</h2>
+    
+    <div style="margin-bottom: 30px; text-align: center; display: flex; flex-direction: column; gap: 20px; align-items: center; background: rgba(255,255,255,0.05); padding: 20px; border-radius: 12px;">
+      
+      <!-- Radius Slider -->
+      <div>
+        <label for="radiusSlider" style="font-size: 14px; letter-spacing: 1px; color: #ccc;">Ecken abrunden (Radius): <span id="radiusValue" style="color: #fff; font-weight: bold;">8</span>px</label><br>
+        <input type="range" id="radiusSlider" min="0" max="25" value="8" style="width: 250px; margin-top: 10px; cursor: pointer;">
+      </div>
+
+      <!-- Eye Size Slider -->
+      <div>
+        <label for="eyeSizeSlider" style="font-size: 14px; letter-spacing: 1px; color: #ccc;">Größe des Auges (Skalierung): <span id="eyeSizeValue" style="color: #fff; font-weight: bold;">1.2</span>x</label><br>
+        <input type="range" id="eyeSizeSlider" min="0.5" max="2.5" step="0.1" value="1.2" style="width: 250px; margin-top: 10px; cursor: pointer;">
+      </div>
+
+      <!-- Font Selector -->
+      <div>
+        <label for="fontSelector" style="font-size: 14px; letter-spacing: 1px; color: #ccc;">Schriftart wählen:</label><br>
+        <select id="fontSelector" style="width: 250px; margin-top: 10px; padding: 8px; font-size: 16px; background: #0d1117; color: #fff; border: 1px solid #444; border-radius: 6px; cursor: pointer;">
+          <option value="'Orbitron', sans-serif">Orbitron</option>
+          <option value="'Rajdhani', sans-serif">Rajdhani</option>
+          <option value="'Montserrat', sans-serif">Montserrat</option>
+          <option value="'Oswald', sans-serif">Oswald</option>
+        </select>
+      </div>
+
+    </div>
+    
+    <div class="grid-container" style="display: flex; justify-content: center;">
+      <!-- Neues interaktives Layout (basierend auf 1.5px Rand) -->
+      <div>
+        <div class="variant-label">Layout 1 (Interaktiv)</div>
+        <div class="layout-logo-top-text-bottom">
+          <div class="logo-icon-wrapper-rounded" id="interactiveEyeWrapper" style="margin-bottom: 8px;">
+            <div class="logo-icon-outer-rounded"></div>
+            <div class="logo-icon-inner-rounded"></div>
+            <div class="logo-eye pupil-d-thin-1"></div>
+          </div>
+          <!-- Angepasster Text-Container: Beide Worte verhalten sich exakt gleich -->
+          <div class="font-14-large" id="interactiveText" style="display: flex; flex-direction: column; align-items: stretch; letter-spacing: 0; transition: font-family 0.3s ease;">
+            <div style="display: flex; justify-content: space-between; gap: 4px; font-size: 42px;">
+              <span>C</span><span>Y</span><span>C</span><span>L</span><span>O</span><span>P</span><span>S</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; gap: 4px; font-size: 42px;">
+              <span>V</span><span>I</span><span>S</span><span>I</span><span>O</span><span>N</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Radius Slider
+    const radiusSlider = document.getElementById('radiusSlider');
+    const radiusValue = document.getElementById('radiusValue');
+    radiusSlider.addEventListener('input', (e) => {
+      const val = e.target.value;
+      radiusValue.textContent = val;
+      document.documentElement.style.setProperty('--eye-radius', val + 'px');
+    });
+
+    // Eye Size Slider
+    const eyeSizeSlider = document.getElementById('eyeSizeSlider');
+    const eyeSizeValue = document.getElementById('eyeSizeValue');
+    const eyeWrapper = document.getElementById('interactiveEyeWrapper');
+    eyeSizeSlider.addEventListener('input', (e) => {
+      const val = e.target.value;
+      eyeSizeValue.textContent = val;
+      eyeWrapper.style.transform = `scale(${val})`;
+    });
+
+    // Font Selector
+    const fontSelector = document.getElementById('fontSelector');
+    const interactiveText = document.getElementById('interactiveText');
+    fontSelector.addEventListener('change', (e) => {
+      interactiveText.style.fontFamily = e.target.value;
+    });
+  </script>
+</body>
+</html>

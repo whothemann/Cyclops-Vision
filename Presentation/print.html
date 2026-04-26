@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Cyclops Vision - Print</title>
+<link rel="stylesheet" href="css/style.css" />
+<style>
+  @page { size: 1920px 1080px; margin: 0; }
+  html, body { margin: 0; padding: 0; background: #000; }
+  deck-stage {
+    display: block;
+    overflow: visible;
+    scroll-snap-type: none;
+  }
+  section.slide {
+    width: 1920px;
+    height: 1080px;
+    min-height: 1080px;
+    page-break-after: always;
+    break-after: page;
+    position: relative;
+    overflow: hidden;
+  }
+</style>
+</head>
+<body>
+<deck-stage id="main-deck"></deck-stage>
+<script>
+  const slides = [
+    'slides/01_01_depth.html',
+    'slides/03_03_the_problem.html',
+    'slides/04_04a_sensor_tradeoffs_a.html',
+    'slides/02_02_mono_is_enough.html',
+    'slides/02_cover_c.html',
+    'slides/06_05_software_defined_sensor.html',
+    'slides/07_06_depth_output.html',
+    'slides/08_07_5_mbyte.html',
+    'slides/09_08_why_now.html',
+    'slides/10_09_cost_and_form.html',
+    'slides/11_10_team.html',
+    'slides/12_11_closing.html'
+  ];
+
+  Promise.all(slides.map(url => fetch(url).then(r => r.text())))
+    .then(htmls => {
+      document.getElementById('main-deck').innerHTML = htmls.join('\n');
+    });
+</script>
+</body>
+</html>

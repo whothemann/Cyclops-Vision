@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>CYCLOPS VISION Logo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0d1117; /* Dunkler Hintergrund */
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 80px 0;
+    gap: 80px;
+    color: #fff;
+  }
+
+  /* ── Eye Logo ── */
+  .logo-icon-wrapper {
+    position: relative;
+    width: 128px; height: 80px;
+    display: flex; justify-content: center; align-items: center;
+    flex-shrink: 0;
+    transform: scale(1.2);
+  }
+  
+  .logo-icon-outer {
+    position: absolute;
+    width: 120px; height: 72px;
+    background: #fff; /* Rahmenfarbe */
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  }
+  
+  .logo-icon-inner {
+    position: absolute;
+    width: 103px; height: 61px;
+    background: #0d1117; /* Entspricht Body-Hintergrund */
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  }
+
+  .logo-eye {
+    position: absolute;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+  }
+
+  /* Variante D: Dünnerer Rand 1 (1.5px) */
+  .pupil-d-thin-1 {
+    background: radial-gradient(circle at 50% 50%, #ffaa00 0%, #ff4400 12%, #c8005a 28%, #6a1b9a 55%, #3a0a6b 85%, #2a0850 100%);
+    box-shadow: 0 0 12px rgba(138, 43, 226, 0.6), inset 0 0 8px rgba(0,0,0,0.4);
+    border-width: 1.5px;
+  }
+
+  /* Variante V3: Ball aus Slide 2 "depth, recovered" */
+  .pupil-slide2-ball {
+    background: radial-gradient(circle at 50% 50%, oklch(0.78 0.18 60), oklch(0.45 0.24 310) 70%, oklch(0.25 0.18 300));
+    box-shadow: 0 0 16px oklch(0.55 0.22 310 / 0.35);
+    border: none;
+  }
+
+  /* V4: Etwas waermer, mehr Orange im Zentrum */
+  .pupil-slide2-ball-warm {
+    background: radial-gradient(circle at 48% 46%, oklch(0.82 0.19 68), oklch(0.50 0.24 325) 68%, oklch(0.27 0.18 302));
+    box-shadow: 0 0 18px oklch(0.58 0.23 320 / 0.38);
+    border: none;
+  }
+
+  /* V5: Etwas kuehler, staerker Richtung Magenta/Violett */
+  .pupil-slide2-ball-cool {
+    background: radial-gradient(circle at 52% 52%, oklch(0.74 0.16 45), oklch(0.43 0.25 300) 66%, oklch(0.22 0.17 292));
+    box-shadow: 0 0 18px oklch(0.52 0.22 300 / 0.40);
+    border: none;
+  }
+
+  /* V6: Hoeherer Kontrast mit tieferem Aussenring */
+  .pupil-slide2-ball-contrast {
+    background: radial-gradient(circle at 50% 48%, oklch(0.84 0.20 70), oklch(0.47 0.26 314) 62%, oklch(0.19 0.14 286));
+    box-shadow: 0 0 20px oklch(0.56 0.24 312 / 0.44);
+    border: none;
+  }
+
+  /* ── Typografie (Orbitron F14) ── */
+  .font-14-large { 
+    font-family: "Orbitron", sans-serif; 
+    font-weight: 900; 
+    font-size: 42px; 
+    letter-spacing: 3px; 
+    color: #fff; 
+    line-height: 1.1; 
+  }
+
+  /* ── Layouts ── */
+  
+  /* Layout 1: Logo Oben, Text Unten */
+  .layout-logo-top-text-bottom {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 16px; 
+    text-align: center;
+  }
+
+  /* ── Rounded Rhombus (V2) ── */
+  :root {
+    --eye-radius: 8px;
+  }
+
+  .logo-icon-wrapper-rounded {
+    position: relative;
+    width: 128px; height: 80px;
+    display: flex; justify-content: center; align-items: center;
+    flex-shrink: 0;
+    transform: scale(1.2);
+  }
+
+  .logo-icon-outer-rounded {
+    position: absolute;
+    width: 51px; height: 51px;
+    background: #fff;
+    transform: scaleX(1.666) rotate(45deg);
+    border-radius: var(--eye-radius);
+  }
+
+  .logo-icon-inner-rounded {
+    position: absolute;
+    width: 43px; height: 43px;
+    background: #0d1117;
+    transform: scaleX(1.688) rotate(45deg);
+    border-radius: calc(var(--eye-radius) * 0.84);
+  }
+
+  .version-title {
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: #888;
+    margin-bottom: 24px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+
+  <div>
+    <div class="version-title">V1 (Original)</div>
+    <div class="layout-logo-top-text-bottom">
+      <div class="logo-icon-wrapper" style="margin-bottom: 8px;">
+        <div class="logo-icon-outer"></div>
+        <div class="logo-icon-inner"></div>
+        <div class="logo-eye pupil-d-thin-1"></div>
+      </div>
+      <div class="font-14-large">
+        <div>CYCLOPS</div>
+        <div>VISION</div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="version-title">V2 (Abgerundet: 8px, Skaliert: 1.2x, Gestreckt)</div>
+    <div class="layout-logo-top-text-bottom">
+      <div class="logo-icon-wrapper-rounded" style="margin-bottom: 8px;">
+        <div class="logo-icon-outer-rounded"></div>
+        <div class="logo-icon-inner-rounded"></div>
+        <div class="logo-eye pupil-d-thin-1"></div>
+      </div>
+      <!-- Text-Container mit gestreckten Buchstaben -->
+      <div class="font-14-large" style="display: flex; flex-direction: column; align-items: stretch; letter-spacing: 0;">
+        <div style="display: flex; justify-content: space-between; gap: 4px; font-size: 42px;">
+          <span>C</span><span>Y</span><span>C</span><span>L</span><span>O</span><span>P</span><span>S</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; gap: 4px; font-size: 42px;">
+          <span>V</span><span>I</span><span>S</span><span>I</span><span>O</span><span>N</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="version-title">V3 (Slide 2 Ball: Depth, Recovered)</div>
+    <div class="layout-logo-top-text-bottom">
+      <div class="logo-icon-wrapper-rounded" style="margin-bottom: 8px;">
+        <div class="logo-icon-outer-rounded"></div>
+        <div class="logo-icon-inner-rounded"></div>
+        <div class="logo-eye pupil-slide2-ball"></div>
+      </div>
+      <div class="font-14-large" style="display: flex; flex-direction: column; align-items: stretch; letter-spacing: 0;">
+        <div style="display: flex; justify-content: space-between; gap: 4px; font-size: 42px;">
+          <span>C</span><span>Y</span><span>C</span><span>L</span><span>O</span><span>P</span><span>S</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; gap: 4px; font-size: 42px;">
+          <span>V</span><span>I</span><span>S</span><span>I</span><span>O</span><span>N</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="version-title">V4 (Warm Shift)</div>
+    <div class="layout-logo-top-text-bottom">
+      <div class="logo-icon-wrapper-rounded" style="margin-bottom: 8px;">
+        <div class="logo-icon-outer-rounded"></div>
+        <div class="logo-icon-inner-rounded"></div>
+        <div class="logo-eye pupil-slide2-ball-warm"></div>
+      </div>
+      <div class="font-14-large" style="display: flex; flex-direction: column; align-items: stretch; letter-spacing: 0;">
+        <div style="display: flex; justify-content: space-between; gap: 4px; font-size: 42px;">
+          <span>C</span><span>Y</span><span>C</span><span>L</span><span>O</span><span>P</span><span>S</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; gap: 4px; font-size: 42px;">
+          <span>V</span><span>I</span><span>S</span><span>I</span><span>O</span><span>N</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="version-title">V5 (Cool Shift)</div>
+    <div class="layout-logo-top-text-bottom">
+      <div class="logo-icon-wrapper-rounded" style="margin-bottom: 8px;">
+        <div class="logo-icon-outer-rounded"></div>
+        <div class="logo-icon-inner-rounded"></div>
+        <div class="logo-eye pupil-slide2-ball-cool"></div>
+      </div>
+      <div class="font-14-large" style="display: flex; flex-direction: column; align-items: stretch; letter-spacing: 0;">
+        <div style="display: flex; justify-content: space-between; gap: 4px; font-size: 42px;">
+          <span>C</span><span>Y</span><span>C</span><span>L</span><span>O</span><span>P</span><span>S</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; gap: 4px; font-size: 42px;">
+          <span>V</span><span>I</span><span>S</span><span>I</span><span>O</span><span>N</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="version-title">V6 (High Contrast)</div>
+    <div class="layout-logo-top-text-bottom">
+      <div class="logo-icon-wrapper-rounded" style="margin-bottom: 8px;">
+        <div class="logo-icon-outer-rounded"></div>
+        <div class="logo-icon-inner-rounded"></div>
+        <div class="logo-eye pupil-slide2-ball-contrast"></div>
+      </div>
+      <div class="font-14-large" style="display: flex; flex-direction: column; align-items: stretch; letter-spacing: 0;">
+        <div style="display: flex; justify-content: space-between; gap: 4px; font-size: 42px;">
+          <span>C</span><span>Y</span><span>C</span><span>L</span><span>O</span><span>P</span><span>S</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; gap: 4px; font-size: 42px;">
+          <span>V</span><span>I</span><span>S</span><span>I</span><span>O</span><span>N</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
