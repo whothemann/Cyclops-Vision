@@ -29,18 +29,6 @@
     overflow: hidden;
   }
 
-  section.slide::after {
-    content: "";
-    position: absolute;
-    top: 290px;
-    bottom: 140px;
-    left: 100px;
-    right: 100px;
-    border: 2px dashed rgba(255, 80, 80, 0.45);
-    pointer-events: none;
-    z-index: 9999;
-  }
-
   .frame {
     position: absolute;
     inset: 0;
