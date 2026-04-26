@@ -644,6 +644,57 @@
   }
   .cost.us li { color: rgba(255,255,255,0.92); }
 
+  /* ==== Slide BOM ==== */
+  .bom-wrap {
+    margin-top: 56px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+  }
+  .bom-table {
+    border-collapse: collapse;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 28px;
+    width: 680px;
+  }
+  .bom-table tbody tr {
+    border-bottom: 1px solid var(--line);
+  }
+  .bom-table td {
+    padding: 18px 0;
+    color: rgba(255,255,255,0.82);
+    font-weight: 300;
+  }
+  .bom-item { padding-right: 48px !important; }
+  .bom-sub {
+    color: var(--dim);
+    font-size: 22px;
+  }
+  .bom-price {
+    text-align: right;
+    white-space: nowrap;
+    font-weight: 500;
+    color: #fff;
+  }
+  .bom-total td {
+    padding-top: 24px;
+    border-top: 2px solid rgba(255,255,255,0.55);
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .bom-note {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 22px;
+    color: var(--dim);
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    margin: 0;
+  }
+
   /* ==== Slide 9: Team ==== */
   .team {
     display: grid;
