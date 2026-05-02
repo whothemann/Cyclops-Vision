@@ -10,8 +10,6 @@ Real-time monocular depth estimation on a Raspberry Pi 5, built in 48 hours at t
 🛠️ **[See the engineering repo →](https://github.com/whothemann/cyclops-vision-depth)**
 &nbsp;&nbsp;&nbsp;&nbsp;Training code, ablation experiments, ONNX export, and Pi 5 inference.
 
-📄 **[Download the pitch as PDF](Cyclops_Vision_Deck.pdf)**
-
 ---
 
 ## What it is
