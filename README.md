@@ -39,7 +39,6 @@ This repo is the **pitch artifact**: the slide deck, branding assets, and presen
 ```
 .
 ├── Presentation/                # HTML slide deck (deployed via GitHub Pages)
-├── Cyclops_Vision_Deck.pdf      # Downloadable PDF version of the deck
 ├── logo/                        # Project logo (HTML / assets)
 └── animation/                   # Supporting animation assets
 ```
