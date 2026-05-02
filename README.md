@@ -4,7 +4,7 @@
 
 Real-time monocular depth estimation on a Raspberry Pi 5, built in 48 hours at the **European Defense Tech Hackathon Porto, 2026**. **2nd place.**
 
-📊 **[View the pitch deck →](https://whothemann.github.io/cyclops-vision-presentation/presentation/)**
+📊 **[View the pitch deck →](https://whothemann.github.io/cyclops-vision-presentation/Presentation/)**
 &nbsp;&nbsp;&nbsp;&nbsp;Slide presentation, deployed via GitHub Pages.
 
 🛠️ **[See the engineering repo →](https://github.com/whothemann/cyclops-vision-depth)**
