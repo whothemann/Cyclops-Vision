@@ -51,4 +51,3 @@ Built in 48 hours by **Niclas**, **Luca**, and **Lars Husemann** at the European
 ## See also
 
 - 🔧 **Engineering repo** — [cyclops-depth](https://github.com/whothemann/cyclops-depth) — training code, ablations (v1–v4), ONNX export, Pi 5 inference, full training report.
-- 🎤 **Pitch site** — [whothemann.github.io/Cyclops-Vision/Presentation](https://whothemann.github.io/Cyclops-Vision/Presentation/)
